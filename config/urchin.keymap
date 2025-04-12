@@ -17,11 +17,6 @@
 #define FUN 4
 // -----------------
 
-&sk {
-	// don't release mods on other mods presses
-	ignore-modifiers;
-};
-
 &lt {
     // time (ms) to decide what is a tap and what is a hold when toggling layers
     tapping-term-ms = <200>;
@@ -39,25 +34,48 @@
 
 		combo_g_h {
 			timeout-ms = <200>;
-			key-positions = <15 16>;
+			key-positions = <14 15>;
 			bindings = <&kp ESC>;
-			layers = <BASE>;
 		};
 
 		combo_b_n {
 			timeout-ms = <200>;
-			key-positions = <25 26>;
+			key-positions = <24 25>;
 			bindings = <&kp CAPS>;
-			layers = <BASE>;
 		};
 
 		combo_z_slash {
 			timeout-ms = <200>;
-			key-positions = <21 30>;
+			key-positions = <20 29>;
 			bindings = <&kp DEL>;
-			layers = <BASE>;
 		};
 	};
+
+	 behaviors {
+		hml: home_row_mod_left {
+		    compatible = "zmk,behavior-hold-tap";
+		    #binding-cells = <2>;
+		    flavor = "tap-preferred";
+		    require-prior-idle-ms = <150>;
+		    tapping-term-ms = <280>;
+		    quick-tap-ms = <175>;
+		    bindings = <&kp>, <&kp>;
+		    hold-trigger-key-positions = <5 6 7 8 9 15 16 17 18 19 25 26 27 28 29 32 33>;  // List of keys on the right side of the keyboard
+		    hold-trigger-on-release;
+		};
+
+		hmr: home_row_mod_right {
+		    compatible = "zmk,behavior-hold-tap";
+		    #binding-cells = <2>;
+		    flavor = "tap-preferred";
+		    require-prior-idle-ms = <150>;
+		    tapping-term-ms = <280>;
+		    quick-tap-ms = <175>;
+		    bindings = <&kp>, <&kp>;
+		    hold-trigger-key-positions = <0 1 2 3 4 10 11 12 13 14 20 21 22 23 24 30 31>; // List of keys on the left side of the keyboard
+		    hold-trigger-on-release;
+		};
+	    };
 
 	keymap {
 		compatible = "zmk,keymap";
@@ -67,7 +85,7 @@
 			label = "Base";
 			bindings = <
 				&kp Q       &kp W       &kp E        &kp R        &kp T      &kp Y    &kp U         &kp I         &kp O       &kp P
-				&mt LGUI A  &mt LALT S  &mt RCTRL D  &mt RSHFT F  &kp G      &kp H    &mt RSHFT J   &mt RCTRL K   &mt LALT L  &mt LGUI SQT
+				&hml LGUI A  &hml LALT S  &hml RCTRL D  &hml RSHFT F  &kp G      &kp H    &hmr RSHFT J   &hmr RCTRL K   &hmr LALT L  &hmr LGUI SQT
 				&kp Z       &kp X       &kp C        &kp V        &kp B      &kp N    &kp M         &kp COMMA     &kp DOT     &kp FSLH
 				&lt FUN TAB &lt NAV RET              &lt SYM SPACE           &lt NUM BSPC
 			>;
