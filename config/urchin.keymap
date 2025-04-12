@@ -61,9 +61,9 @@
 		base_layer {
 			label = "Base";
 			bindings = <
-				&kp Q       &kp W      &kp E      &kp R      &kp T      &kp Y    &kp U      &kp I       &kp O      &kp P
-				&kp A       &kp S      &kp D      &kp F      &kp G      &kp H    &kp J      &kp K       &kp L      &kp SQT
-				&kp Z       &kp X      &kp C      &kp V      &kp B      &kp N    &kp M      &kp COMMA   &kp DOT    &kp FSLH
+				&kp Q       &kp W      &kp E      &kp R      &kp T      &kp Y    &kp U       &kp I       &kp O      &kp P
+				&kp LG(A)   &kp LA(S)  &kp RC(D)  &kp RS(F)  &kp G      &kp H    &kp RS(J)   &kp RC(K)   &kp LA(L)  &kp LG(SQT)
+				&kp Z       &kp X      &kp C      &kp V      &kp B      &kp N    &kp M       &kp COMMA   &kp DOT    &kp FSLH
 				&lt FUN TAB &lt NAV RET            &lt SYM SPACE         &lt NUM BSPC
 			>;
 		};
