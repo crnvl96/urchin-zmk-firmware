@@ -24,7 +24,12 @@
 
 &lt {
     // time (ms) to decide what is a tap and what is a hold when toggling layers
-    tapping-term-ms = <160>;
+    tapping-term-ms = <200>;
+};
+
+&mt {
+    // time (ms) to decide what is a tap and what is a hold when toggling layers
+    tapping-term-ms = <200>;
 };
 
 
@@ -33,21 +38,21 @@
 		compatible = "zmk,combos";
 
 		combo_g_h {
-			timeout-ms = <36>;
+			timeout-ms = <200>;
 			key-positions = <15 16>;
 			bindings = <&kp ESC>;
 			layers = <BASE>;
 		};
 
 		combo_b_n {
-			timeout-ms = <36>;
+			timeout-ms = <200>;
 			key-positions = <25 26>;
 			bindings = <&kp CAPS>;
 			layers = <BASE>;
 		};
 
 		combo_z_slash {
-			timeout-ms = <36>;
+			timeout-ms = <200>;
 			key-positions = <21 30>;
 			bindings = <&kp DEL>;
 			layers = <BASE>;
